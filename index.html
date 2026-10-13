@@ -96,6 +96,11 @@ section>h2{text-align:center;font-size:clamp(2rem,5vw,3.5rem);margin-bottom:2.5r
 .menu a{display:block;padding:.7rem 1rem;border-radius:8px;text-decoration:none;font-family:var(--mono);font-size:.85rem}
 .menu a:hover,.menu a:focus-visible{background:#eee}
 @media(max-width:800px){.menu{margin-left:.8rem}.menu button{padding:.6rem .9rem;font-size:.75rem}nav .home{font-size:1.3rem}.in{width:40px;height:40px}.email{padding:.6rem .9rem;font-size:.75rem}.links{gap:.5rem}}
+/* contact form */
+.contact-form{max-width:520px;margin-top:2rem;display:grid;gap:1rem}
+.contact-form label{display:grid;gap:.4rem;font-size:1rem}
+.contact-form input,.contact-form textarea{font:inherit;padding:.8rem 1rem;border:0;border-radius:8px;color:var(--ink)}
+.contact-form button{border:0;cursor:pointer}
 </style>
 </head>
 <body>
@@ -175,6 +180,12 @@ section>h2{text-align:center;font-size:clamp(2rem,5vw,3.5rem);margin-bottom:2.5r
     <p>Irvine California</p>
     <p>(559)590-1901<br><a href="mailto:janwayne.agluba11@gmail.com">janwayne.agluba11@gmail.com</a></p>
     <p><a href="https://www.linkedin.com/in/jan-wayne-agluba-5745bb308/" target="_blank" rel="noopener">LINKED IN</a></p>
+    <form class="contact-form" action="https://formspree.io/f/xdeawwzb" method="POST">
+      <label>Your name<input type="text" name="name" required></label>
+      <label>Your email<input type="email" name="email" required></label>
+      <label>Message<textarea name="message" rows="5" required></textarea></label>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
   </footer>
 </div>
 
@@ -439,6 +450,13 @@ document.querySelector('.arrow.r').onclick=function(){track.scrollBy({left:400,b
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll()});
   window.addEventListener('hashchange',closeAll);
 })();
+
+// Make email links open Gmail in the browser
+document.querySelectorAll('a[href^="mailto:"]').forEach(function(a){
+  a.href='https://mail.google.com/mail/?view=cm&fs=1&to=janwayne.agluba11@gmail.com&su=Portfolio%20inquiry';
+  a.target='_blank';
+  a.rel='noopener';
+});
 </script>
 </body>
 </html>
