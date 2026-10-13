@@ -76,7 +76,7 @@ section>h2{text-align:center;font-size:clamp(2rem,5vw,3.5rem);margin-bottom:2.5r
 .connect p{margin-bottom:1rem}
 .proj video{display:block}
 .row2 img,.gal figure img{width:100%}
- .gal img{width:100%;height:340px;object-fit:contain;background:#fff}
+.gal img{width:100%;height:340px;object-fit:contain;background:#fff}
 .gal.tall img{height:520px}
 .row2 img{width:100%;aspect-ratio:4/3;height:auto;object-fit:contain;background:#fff}
 .rover .row2 img,.rover .gal img{background:#f3f3f3}
@@ -88,6 +88,14 @@ section>h2{text-align:center;font-size:clamp(2rem,5vw,3.5rem);margin-bottom:2.5r
  .arrow{display:none}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+/* projects dropdown */
+.menu{position:relative;margin-left:2rem;margin-right:auto}
+.menu button{font-family:var(--mono);font-size:.9rem;background:transparent;color:inherit;border:2px solid currentColor;border-radius:40px;padding:.8rem 1.4rem;cursor:pointer}
+.menu ul{display:none;position:absolute;top:calc(100% + .5rem);left:0;min-width:270px;list-style:none;background:#fff;color:var(--ink);border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,.25);padding:.5rem;z-index:20}
+.menu.open ul{display:block}
+.menu a{display:block;padding:.7rem 1rem;border-radius:8px;text-decoration:none;font-family:var(--mono);font-size:.85rem}
+.menu a:hover,.menu a:focus-visible{background:#eee}
+@media(max-width:800px){.menu{margin-left:.8rem}.menu button{padding:.6rem .9rem;font-size:.75rem}nav .home{font-size:1.3rem}.in{width:40px;height:40px}.email{padding:.6rem .9rem;font-size:.75rem}.links{gap:.5rem}}
 </style>
 </head>
 <body>
@@ -415,6 +423,22 @@ window.addEventListener('hashchange',route);route();
 var track=document.getElementById('track');
 document.querySelector('.arrow.l').onclick=function(){track.scrollBy({left:-400,behavior:'smooth'})};
 document.querySelector('.arrow.r').onclick=function(){track.scrollBy({left:400,behavior:'smooth'})};
+
+// Projects dropdown (added to every page's top bar)
+(function(){
+  var items=[['baja','UCI Baja Racing'],['rover','Fire-Extinguishing Rover'],['drone','Precision Drone'],['sony','Sony Camera CAD'],['tracker','Fitness Tracker'],['rc','Remote Controlled Rover']];
+  document.querySelectorAll('nav').forEach(function(nav){
+    var m=document.createElement('div');m.className='menu';
+    m.innerHTML='<button type="button" aria-expanded="false" aria-haspopup="true">PROJECTS &#9662;</button><ul>'+items.map(function(i){return '<li><a href="#'+i[0]+'">'+i[1]+'</a></li>'}).join('')+'</ul>';
+    nav.insertBefore(m,nav.querySelector('.links'));
+    var b=m.querySelector('button');
+    b.onclick=function(e){e.stopPropagation();var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)};
+  });
+  function closeAll(){document.querySelectorAll('.menu').forEach(function(m){m.classList.remove('open');m.querySelector('button').setAttribute('aria-expanded','false')})}
+  document.addEventListener('click',closeAll);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll()});
+  window.addEventListener('hashchange',closeAll);
+})();
 </script>
 </body>
 </html>
