@@ -110,6 +110,21 @@ section>h2{text-align:center;font-size:clamp(2rem,5vw,3.5rem);margin-bottom:2.5r
 .tracker-gal .span2{grid-column:span 2;display:grid;grid-template-columns:1fr 1fr;column-gap:1.5rem;align-content:start}
 .tracker-gal .span2 figcaption{grid-column:1/-1}
 @media(max-width:800px){.connect{grid-template-columns:1fr}.connect .contact-form{grid-column:1;grid-row:auto;margin-top:2rem}.tracker-gal{grid-template-columns:1fr}.tracker-gal .span2{grid-column:span 1}}
+/* THEME: Midnight (dark) */
+:root{--blue:#1a2150;--ink:#e9ecfb;--grey:#151a38;--white:#0d1022}
+.hero,.connect{color:#fff}
+.hero{background:linear-gradient(135deg,#1a2150,#3a1d6e)}
+.light nav{color:#fff}
+section>h2::after{content:"";display:block;width:64px;height:4px;background:#ff8a3d;margin:.8rem auto 0;border-radius:4px}
+.btn:hover,.email:hover{background:#ff8a3d;color:#0d1022}
+.light .email{background:#ff8a3d;color:#0d1022}
+.arrow{background:#ff8a3d;color:#0d1022}
+.card{background:#151a38;border-radius:16px;padding-bottom:1.5rem;overflow:hidden}
+.card h3,.card .sub,.card p.d,.card .btn{margin-left:1.2rem;margin-right:1.2rem}
+.photos img{border-radius:16px}
+.menu ul{background:#1a2150;color:#fff}
+.menu a:hover,.menu a:focus-visible{background:rgba(255,255,255,.14)}
+.contact-form input,.contact-form textarea{color:#111}
 </style>
 </head>
 <body>
