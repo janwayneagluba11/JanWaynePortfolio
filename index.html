@@ -142,9 +142,11 @@ section>h2::after{content:"";display:block;width:64px;height:4px;background:var(
 .connect{display:grid;grid-template-columns:1fr 1fr;column-gap:4rem;align-items:start}
 .connect h2{grid-column:1/-1}
 .connect{grid-template-rows:auto auto auto auto 1fr}
-.connect .contact-form{grid-column:2;grid-row:2/6;margin-top:0;max-width:620px;width:100%}
+.connect .contact-form{grid-column:2;grid-row:2/6;margin-top:0;max-width:420px;width:100%;gap:.7rem}
 .contact-form{display:grid;gap:1rem}.contact-form label{display:grid;gap:.4rem;font-size:1rem}
-.contact-form input,.contact-form textarea{font:inherit;padding:.8rem 1rem;border:0;border-radius:8px;color:#111}
+.contact-form input,.contact-form textarea{font:inherit;font-size:.95rem;padding:.55rem .8rem;border:0;border-radius:8px;color:#111}
+.contact-form textarea{height:90px;resize:vertical}
+.contact-form button{padding:.7rem 1.4rem}
 .contact-form button{border:0;cursor:pointer}
 .tracker-gal{grid-template-columns:repeat(3,1fr)}
 .tracker-gal .span2{grid-column:span 2;display:grid;grid-template-columns:1fr 1fr;column-gap:1.5rem;align-content:start}
