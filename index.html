@@ -159,6 +159,18 @@ section>h2::after{content:"";display:block;width:64px;height:4px;background:var(
  .connect{grid-template-columns:1fr}.connect .contact-form{grid-column:1;grid-row:auto;margin-top:2rem}
  .tracker-gal{grid-template-columns:1fr}.tracker-gal .span2{grid-column:span 1}
 }
+/* ===== Projects as a grid (replaces the stacking cards) ===== */
+.track{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1200px;overflow:visible;padding:0 0 1rem}
+.card{position:static;display:flex;flex-direction:column;min-height:0;margin-bottom:0;padding:0 0 1.5rem;overflow:hidden;border-radius:20px;box-shadow:0 8px 24px rgba(30,60,140,.10);transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(30,60,140,.22)}
+.card img{grid-column:auto;grid-row:auto;width:100%;height:auto;aspect-ratio:4/3;border-radius:0}
+.card h3,.card .sub,.card p.d,.card .btn{grid-column:auto;grid-row:auto;margin-left:1.2rem;margin-right:1.2rem}
+.card h3{font-size:1.4rem;margin-top:1.2rem;margin-bottom:.2rem}
+.card h3::before{display:none}
+.card p.d{margin-top:1rem;margin-bottom:1.2rem;flex:1}
+.card .btn{margin-top:0}
+@media(max-width:900px){.track{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.track{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
